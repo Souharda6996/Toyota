@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-    <!-- 3D Background Canvas -->
+    <!-- 3D Background Canvas with Animated Toyota Logo -->
     <canvas id="bg-canvas"></canvas>
     
     <!-- Navigation -->
@@ -108,80 +108,89 @@
             </h2>
             
             <div class="vehicle-grid">
-                <div class="vehicle-card hover-3d">
+                <div class="vehicle-card hover-3d" data-vehicle="camry">
                     <div class="vehicle-image">
-                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Toyota Camry" class="vehicle-img">
+                        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/c6c63c39-44e3-4899-ad9b-c791e99974e5.png" alt="Toyota Camry" class="vehicle-img">
                     </div>
                     <div class="vehicle-info">
                         <h3 class="vehicle-name neon-text-sm">Toyota Camry</h3>
                         <p class="vehicle-desc">Premium sedan with cutting-edge technology</p>
                         <div class="vehicle-price">Starting at $28,855</div>
-                        <button class="btn btn-primary btn-sm">Configure</button>
+                        <button class="btn btn-primary btn-sm history-btn" onclick="showHistory('camry')">View History</button>
                     </div>
                 </div>
                 
-                <div class="vehicle-card hover-3d">
+                <div class="vehicle-card hover-3d" data-vehicle="rav4">
                     <div class="vehicle-image">
-                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Toyota RAV4" class="vehicle-img">
+                        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/e43b4afb-d74e-462a-ae19-35c0c6f567bb.png" alt="Toyota RAV4" class="vehicle-img">
                     </div>
                     <div class="vehicle-info">
                         <h3 class="vehicle-name neon-text-sm">Toyota RAV4</h3>
                         <p class="vehicle-desc">Adventure-ready compact SUV</p>
                         <div class="vehicle-price">Starting at $29,575</div>
-                        <button class="btn btn-primary btn-sm">Configure</button>
+                        <button class="btn btn-primary btn-sm history-btn" onclick="showHistory('rav4')">View History</button>
                     </div>
                 </div>
                 
-                <div class="vehicle-card hover-3d">
+                <div class="vehicle-card hover-3d" data-vehicle="supra">
                     <div class="vehicle-image">
-                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Toyota Supra" class="vehicle-img">
+                        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/a5b2a4d2-512c-464d-90aa-9a0d90365119.png" alt="Toyota Supra" class="vehicle-img">
                     </div>
                     <div class="vehicle-info">
                         <h3 class="vehicle-name neon-text-sm">Toyota Supra</h3>
                         <p class="vehicle-desc">Legendary sports car performance</p>
                         <div class="vehicle-price">Starting at $46,440</div>
-                        <button class="btn btn-primary btn-sm">Configure</button>
+                        <button class="btn btn-primary btn-sm history-btn" onclick="showHistory('supra')">View History</button>
                     </div>
                 </div>
                 
-                <div class="vehicle-card hover-3d">
+                <div class="vehicle-card hover-3d" data-vehicle="prius">
                     <div class="vehicle-image">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Toyota Prius" class="vehicle-img">
+                        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/d29781b5-abbc-480c-a07c-b4a5a256b870.png" alt="Toyota Prius" class="vehicle-img">
                     </div>
                     <div class="vehicle-info">
                         <h3 class="vehicle-name neon-text-sm">Toyota Prius</h3>
                         <p class="vehicle-desc">Hybrid innovation leader</p>
                         <div class="vehicle-price">Starting at $27,950</div>
-                        <button class="btn btn-primary btn-sm">Configure</button>
+                        <button class="btn btn-primary btn-sm history-btn" onclick="showHistory('prius')">View History</button>
                     </div>
                 </div>
                 
-                <div class="vehicle-card hover-3d">
+                <div class="vehicle-card hover-3d" data-vehicle="tundra">
                     <div class="vehicle-image">
-                        <img src="https://images.unsplash.com/photo-1523774879059-6c34bb2e7ed7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Toyota Tundra" class="vehicle-img">
+                        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/15248ba8-f77b-4b59-80d0-2e0ba1538236.png" alt="Toyota Tundra" class="vehicle-img">
                     </div>
                     <div class="vehicle-info">
                         <h3 class="vehicle-name neon-text-sm">Toyota Tundra</h3>
                         <p class="vehicle-desc">Full-size pickup power</p>
                         <div class="vehicle-price">Starting at $39,965</div>
-                        <button class="btn btn-primary btn-sm">Configure</button>
+                        <button class="btn btn-primary btn-sm history-btn" onclick="showHistory('tundra')">View History</button>
                     </div>
                 </div>
                 
-                <div class="vehicle-card hover-3d">
+                <div class="vehicle-card hover-3d" data-vehicle="gr86">
                     <div class="vehicle-image">
-                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Toyota GR86" class="vehicle-img">
+                        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/5a562c83-2e15-4954-8b2e-7a6e5c76f97f.png" alt="Toyota GR86" class="vehicle-img">
                     </div>
                     <div class="vehicle-info">
                         <h3 class="vehicle-name neon-text-sm">Toyota GR86</h3>
                         <p class="vehicle-desc">Pure sports car thrill</p>
                         <div class="vehicle-price">Starting at $30,300</div>
-                        <button class="btn btn-primary btn-sm">Configure</button>
+                        <button class="btn btn-primary btn-sm history-btn" onclick="showHistory('gr86')">View History</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- History Modal -->
+    <div id="historyModal" class="history-modal">
+        <div class="history-modal-content card-3d">
+            <span class="close-modal" onclick="closeHistory()">&times;</span>
+            <div id="history-3d-container"></div>
+            <div id="historyContent"></div>
+        </div>
+    </div>
 
     <!-- Innovation Section -->
     <section id="innovation" class="innovation-section">
@@ -310,5 +319,6 @@
 
     <script src="script.js"></script>
     <script src="3d-animation.js"></script>
+    <script src="history.js"></script>
 </body>
 </html>
