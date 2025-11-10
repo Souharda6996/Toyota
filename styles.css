@@ -69,13 +69,40 @@ body {
     gap: 1rem;
 }
 
-.logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: var(--text-light);
-    text-shadow: 0 0 20px var(--neon-red), 0 0 40px var(--neon-red);
-    letter-spacing: 5px;
+.logo-3d-container {
+    perspective: 1000px;
+    display: inline-block;
+}
+
+.logo-3d {
+    width: 120px;
+    height: auto;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    filter: drop-shadow(0 0 20px var(--neon-red));
+}
+
+.logo-3d:hover {
+    transform: rotateY(360deg) rotateX(10deg) scale(1.1);
+    filter: drop-shadow(0 0 30px var(--neon-red)) drop-shadow(0 0 40px var(--neon-red));
+}
+
+.logo-glow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle, rgba(235,10,30,0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    animation: logo-glow-pulse 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes logo-glow-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.8; }
 }
 
 .tagline {
@@ -354,23 +381,17 @@ section {
 .vehicle-image {
     height: 250px;
     overflow: hidden;
+    position: relative;
 }
 
-.image-placeholder {
+.vehicle-img {
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3rem;
-    font-weight: 900;
-    color: rgba(255, 255, 255, 0.9);
-    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    object-fit: cover;
     transition: transform 0.4s ease;
 }
 
-.vehicle-card:hover .image-placeholder {
+.vehicle-card:hover .vehicle-img {
     transform: scale(1.1);
 }
 
@@ -596,6 +617,10 @@ section {
     .section-title {
         font-size: 3rem;
     }
+    
+    .logo-3d {
+        width: 100px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -633,5 +658,9 @@ section {
     
     .footer-content {
         grid-template-columns: 1fr;
+    }
+    
+    .logo-3d {
+        width: 80px;
     }
 }
