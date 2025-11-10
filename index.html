@@ -6,224 +6,301 @@
     <title>TOYOTA - Let's Go Places</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="animations.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-    <!-- 3D Background Canvas with Animated Toyota Logo -->
+    <!-- 3D Background Canvas -->
     <canvas id="bg-canvas"></canvas>
     
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo-container">
-                <div class="logo-3d-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Toyota_logo.svg" alt="Toyota Logo" class="logo-3d glitch" id="toyota-logo">
-                    <div class="logo-glow"></div>
-                </div>
-                <p class="tagline neon-text">LET'S GO PLACES</p>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <a href="#home">
+                    <img src="https://www.toyota.com/imgix/responsive/images/mlp/common/toyota-logo.svg" alt="Toyota Logo" class="logo">
+                </a>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#models" class="nav-link">Models</a></li>
                 <li><a href="#legacy" class="nav-link">Legacy</a></li>
-                <li><a href="#vehicles" class="nav-link">Vehicles</a></li>
                 <li><a href="#innovation" class="nav-link">Innovation</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-bg">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="https://www.toyota.com/imgix/content/dam/toyota/jellies/max/2025/gr86/desktop.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
         <div class="hero-content">
-            <h2 class="hero-title floating-text">
-                <span class="word-animation">DRIVING</span> 
-                <span class="word-animation delay-1">THE</span> 
-                <span class="word-animation delay-2">FUTURE</span>
-            </h2>
-            <p class="hero-subtitle fade-in-up">Experience Innovation, Reliability, and Performance Since 1937</p>
-            <div class="cta-buttons fade-in-up delay-3">
-                <a href="#vehicles" class="btn btn-primary pulse-btn">Explore Vehicles</a>
-                <a href="#legacy" class="btn btn-secondary">Our Story</a>
+            <h1 class="hero-title">
+                <span class="title-line line-1">One of a Kind.</span>
+                <span class="title-line line-2">The New Era.</span>
+            </h1>
+            <p class="hero-subtitle">Discover the future of mobility</p>
+            <div class="hero-cta">
+                <a href="#models" class="btn btn-primary">Explore Models</a>
+                <a href="#legacy" class="btn btn-outline">Our Story</a>
             </div>
         </div>
         <div class="scroll-indicator">
-            <span class="scroll-text">Scroll Down</span>
             <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- Models Section -->
+    <section id="models" class="models-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Models</h2>
+                <p class="section-subtitle">Find your perfect Toyota</p>
+            </div>
+
+            <!-- Model Cards -->
+            <div class="models-grid">
+                <!-- Camry -->
+                <div class="model-card" data-model="camry">
+                    <div class="model-image-wrapper">
+                        <img src="https://www.toyota.com/imgix/content/dam/toyota/vehicles/2025/camry/overview/desktop/2025-camry-xse-aw-01-super-white-l.png" alt="Toyota Camry" class="model-image">
+                        <div class="model-overlay">
+                            <button class="btn-history" onclick="showHistory('camry')">View History</button>
+                        </div>
+                    </div>
+                    <div class="model-info">
+                        <div class="model-category">Sedan</div>
+                        <h3 class="model-name">Toyota Camry</h3>
+                        <p class="model-description">Iconic sedan with refined comfort and advanced technology</p>
+                        <div class="model-specs">
+                            <span class="spec"><strong>4 doors</strong></span>
+                            <span class="spec"><strong>5 seats</strong></span>
+                            <span class="spec"><strong>Gasoline/Hybrid</strong></span>
+                        </div>
+                        <div class="model-footer">
+                            <div class="model-price">Starting at $28,855</div>
+                            <a href="#" class="btn-discover">Discover →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RAV4 -->
+                <div class="model-card" data-model="rav4">
+                    <div class="model-image-wrapper">
+                        <img src="https://www.toyota.com/imgix/content/dam/toyota/vehicles/2025/rav4/overview/desktop/2025-rav4-xle-01-magnetic-gray-metallic-l.png" alt="Toyota RAV4" class="model-image">
+                        <div class="model-overlay">
+                            <button class="btn-history" onclick="showHistory('rav4')">View History</button>
+                        </div>
+                    </div>
+                    <div class="model-info">
+                        <div class="model-category">SUV</div>
+                        <h3 class="model-name">Toyota RAV4</h3>
+                        <p class="model-description">Versatile SUV built for adventure and everyday versatility</p>
+                        <div class="model-specs">
+                            <span class="spec"><strong>4 doors</strong></span>
+                            <span class="spec"><strong>5 seats</strong></span>
+                            <span class="spec"><strong>Gasoline/Hybrid</strong></span>
+                        </div>
+                        <div class="model-footer">
+                            <div class="model-price">Starting at $29,575</div>
+                            <a href="#" class="btn-discover">Discover →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supra -->
+                <div class="model-card" data-model="supra">
+                    <div class="model-image-wrapper">
+                        <img src="https://www.toyota.com/imgix/content/dam/toyota/vehicles/2024/gr-supra/overview/2024-gr-supra-a91-mt-edition-01-renaissance-red-l.png" alt="Toyota GR Supra" class="model-image">
+                        <div class="model-overlay">
+                            <button class="btn-history" onclick="showHistory('supra')">View History</button>
+                        </div>
+                    </div>
+                    <div class="model-info">
+                        <div class="model-category">Sports Car</div>
+                        <h3 class="model-name">Toyota GR Supra</h3>
+                        <p class="model-description">Legendary performance with precision engineering</p>
+                        <div class="model-specs">
+                            <span class="spec"><strong>2 doors</strong></span>
+                            <span class="spec"><strong>2 seats</strong></span>
+                            <span class="spec"><strong>Gasoline</strong></span>
+                        </div>
+                        <div class="model-footer">
+                            <div class="model-price">Starting at $46,440</div>
+                            <a href="#" class="btn-discover">Discover →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prius -->
+                <div class="model-card" data-model="prius">
+                    <div class="model-image-wrapper">
+                        <img src="https://www.toyota.com/imgix/content/dam/toyota/vehicles/2025/prius/overview/desktop/2025-prius-xle-01-wind-chill-pearl-l.png" alt="Toyota Prius" class="model-image">
+                        <div class="model-overlay">
+                            <button class="btn-history" onclick="showHistory('prius')">View History</button>
+                        </div>
+                    </div>
+                    <div class="model-info">
+                        <div class="model-category">Hybrid</div>
+                        <h3 class="model-name">Toyota Prius</h3>
+                        <p class="model-description">Pioneer of hybrid technology with exceptional efficiency</p>
+                        <div class="model-specs">
+                            <span class="spec"><strong>4 doors</strong></span>
+                            <span class="spec"><strong>5 seats</strong></span>
+                            <span class="spec"><strong>Hybrid</strong></span>
+                        </div>
+                        <div class="model-footer">
+                            <div class="model-price">Starting at $27,950</div>
+                            <a href="#" class="btn-discover">Discover →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tundra -->
+                <div class="model-card" data-model="tundra">
+                    <div class="model-image-wrapper">
+                        <img src="https://www.toyota.com/imgix/content/dam/toyota/vehicles/2024/tundra/overview/2024-tundra-sr5-01-magnetic-gray-metallic-l.png" alt="Toyota Tundra" class="model-image">
+                        <div class="model-overlay">
+                            <button class="btn-history" onclick="showHistory('tundra')">View History</button>
+                        </div>
+                    </div>
+                    <div class="model-info">
+                        <div class="model-category">Truck</div>
+                        <h3 class="model-name">Toyota Tundra</h3>
+                        <p class="model-description">Full-size power with uncompromising capability</p>
+                        <div class="model-specs">
+                            <span class="spec"><strong>4 doors</strong></span>
+                            <span class="spec"><strong>5+ seats</strong></span>
+                            <span class="spec"><strong>Gasoline/Hybrid</strong></span>
+                        </div>
+                        <div class="model-footer">
+                            <div class="model-price">Starting at $39,965</div>
+                            <a href="#" class="btn-discover">Discover →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GR86 -->
+                <div class="model-card" data-model="gr86">
+                    <div class="model-image-wrapper">
+                        <img src="https://www.toyota.com/imgix/content/dam/toyota/vehicles/2024/gr86/overview/2024-gr86-premium-01-trueno-blue-l.png" alt="Toyota GR86" class="model-image">
+                        <div class="model-overlay">
+                            <button class="btn-history" onclick="showHistory('gr86')">View History</button>
+                        </div>
+                    </div>
+                    <div class="model-info">
+                        <div class="model-category">Sports Car</div>
+                        <h3 class="model-name">Toyota GR86</h3>
+                        <p class="model-description">Pure driving excitement with rear-wheel drive performance</p>
+                        <div class="model-specs">
+                            <span class="spec"><strong>2 doors</strong></span>
+                            <span class="spec"><strong>4 seats</strong></span>
+                            <span class="spec"><strong>Gasoline</strong></span>
+                        </div>
+                        <div class="model-footer">
+                            <div class="model-price">Starting at $30,300</div>
+                            <a href="#" class="btn-discover">Discover →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Legacy Section -->
     <section id="legacy" class="legacy-section">
         <div class="container">
-            <h2 class="section-title">
-                <span class="title-line"></span>
-                <span class="glitch-title" data-text="OUR LEGACY">OUR LEGACY</span>
-                <span class="title-line"></span>
-            </h2>
-            
+            <div class="section-header">
+                <h2 class="section-title">Our Legacy</h2>
+                <p class="section-subtitle">88 years of innovation and excellence</p>
+            </div>
+
             <div class="timeline">
-                <div class="timeline-item reveal-left">
-                    <div class="timeline-year neon-text">1937</div>
-                    <div class="timeline-content card-3d">
+                <div class="timeline-item">
+                    <div class="timeline-year">1937</div>
+                    <div class="timeline-content">
                         <h3>The Beginning</h3>
-                        <p>Toyota Motor Corporation was founded by Kiichiro Toyoda, revolutionizing the automotive industry with innovation and quality.</p>
+                        <p>Toyota Motor Corporation was founded by Kiichiro Toyoda, establishing a commitment to quality and innovation that continues today.</p>
                     </div>
                 </div>
-                
-                <div class="timeline-item reveal-right">
-                    <div class="timeline-year neon-text">1966</div>
-                    <div class="timeline-content card-3d">
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1966</div>
+                    <div class="timeline-content">
                         <h3>Corolla Launch</h3>
-                        <p>The iconic Toyota Corolla was launched, becoming the world's best-selling car with over 50 million units sold globally.</p>
+                        <p>The legendary Toyota Corolla debuted, becoming the world's best-selling car with over 50 million units sold globally.</p>
                     </div>
                 </div>
-                
-                <div class="timeline-item reveal-left">
-                    <div class="timeline-year neon-text">1997</div>
-                    <div class="timeline-content card-3d">
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1989</div>
+                    <div class="timeline-content">
+                        <h3>Lexus Division</h3>
+                        <p>Launch of the Lexus brand, redefining luxury and performance in the automotive industry.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1997</div>
+                    <div class="timeline-content">
                         <h3>Prius Revolution</h3>
-                        <p>Introduced the world's first mass-produced hybrid vehicle, the Prius, pioneering sustainable mobility.</p>
+                        <p>Introduced the world's first mass-produced hybrid vehicle, pioneering sustainable mobility and environmental responsibility.</p>
                     </div>
                 </div>
-                
-                <div class="timeline-item reveal-right">
-                    <div class="timeline-year neon-text">2025</div>
-                    <div class="timeline-content card-3d">
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-content">
                         <h3>Electric Future</h3>
-                        <p>Leading the charge in electric and hydrogen fuel cell technology, shaping the future of transportation.</p>
+                        <p>Leading the transition to carbon neutrality with advanced electric vehicles and hydrogen fuel cell technology.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Vehicles Section -->
-    <section id="vehicles" class="vehicles-section">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-line"></span>
-                <span class="glitch-title" data-text="OUR VEHICLES">OUR VEHICLES</span>
-                <span class="title-line"></span>
-            </h2>
-            
-            <div class="vehicle-grid">
-                <div class="vehicle-card hover-3d" data-vehicle="camry">
-                    <div class="vehicle-image">
-                        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/c6c63c39-44e3-4899-ad9b-c791e99974e5.png" alt="Toyota Camry" class="vehicle-img">
-                    </div>
-                    <div class="vehicle-info">
-                        <h3 class="vehicle-name neon-text-sm">Toyota Camry</h3>
-                        <p class="vehicle-desc">Premium sedan with cutting-edge technology</p>
-                        <div class="vehicle-price">Starting at $28,855</div>
-                        <button class="btn btn-primary btn-sm history-btn" onclick="showHistory('camry')">View History</button>
-                    </div>
-                </div>
-                
-                <div class="vehicle-card hover-3d" data-vehicle="rav4">
-                    <div class="vehicle-image">
-                        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/e43b4afb-d74e-462a-ae19-35c0c6f567bb.png" alt="Toyota RAV4" class="vehicle-img">
-                    </div>
-                    <div class="vehicle-info">
-                        <h3 class="vehicle-name neon-text-sm">Toyota RAV4</h3>
-                        <p class="vehicle-desc">Adventure-ready compact SUV</p>
-                        <div class="vehicle-price">Starting at $29,575</div>
-                        <button class="btn btn-primary btn-sm history-btn" onclick="showHistory('rav4')">View History</button>
-                    </div>
-                </div>
-                
-                <div class="vehicle-card hover-3d" data-vehicle="supra">
-                    <div class="vehicle-image">
-                        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/a5b2a4d2-512c-464d-90aa-9a0d90365119.png" alt="Toyota Supra" class="vehicle-img">
-                    </div>
-                    <div class="vehicle-info">
-                        <h3 class="vehicle-name neon-text-sm">Toyota Supra</h3>
-                        <p class="vehicle-desc">Legendary sports car performance</p>
-                        <div class="vehicle-price">Starting at $46,440</div>
-                        <button class="btn btn-primary btn-sm history-btn" onclick="showHistory('supra')">View History</button>
-                    </div>
-                </div>
-                
-                <div class="vehicle-card hover-3d" data-vehicle="prius">
-                    <div class="vehicle-image">
-                        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/d29781b5-abbc-480c-a07c-b4a5a256b870.png" alt="Toyota Prius" class="vehicle-img">
-                    </div>
-                    <div class="vehicle-info">
-                        <h3 class="vehicle-name neon-text-sm">Toyota Prius</h3>
-                        <p class="vehicle-desc">Hybrid innovation leader</p>
-                        <div class="vehicle-price">Starting at $27,950</div>
-                        <button class="btn btn-primary btn-sm history-btn" onclick="showHistory('prius')">View History</button>
-                    </div>
-                </div>
-                
-                <div class="vehicle-card hover-3d" data-vehicle="tundra">
-                    <div class="vehicle-image">
-                        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/15248ba8-f77b-4b59-80d0-2e0ba1538236.png" alt="Toyota Tundra" class="vehicle-img">
-                    </div>
-                    <div class="vehicle-info">
-                        <h3 class="vehicle-name neon-text-sm">Toyota Tundra</h3>
-                        <p class="vehicle-desc">Full-size pickup power</p>
-                        <div class="vehicle-price">Starting at $39,965</div>
-                        <button class="btn btn-primary btn-sm history-btn" onclick="showHistory('tundra')">View History</button>
-                    </div>
-                </div>
-                
-                <div class="vehicle-card hover-3d" data-vehicle="gr86">
-                    <div class="vehicle-image">
-                        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/5a562c83-2e15-4954-8b2e-7a6e5c76f97f.png" alt="Toyota GR86" class="vehicle-img">
-                    </div>
-                    <div class="vehicle-info">
-                        <h3 class="vehicle-name neon-text-sm">Toyota GR86</h3>
-                        <p class="vehicle-desc">Pure sports car thrill</p>
-                        <div class="vehicle-price">Starting at $30,300</div>
-                        <button class="btn btn-primary btn-sm history-btn" onclick="showHistory('gr86')">View History</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- History Modal -->
-    <div id="historyModal" class="history-modal">
-        <div class="history-modal-content card-3d">
-            <span class="close-modal" onclick="closeHistory()">&times;</span>
-            <div id="history-3d-container"></div>
-            <div id="historyContent"></div>
-        </div>
-    </div>
 
     <!-- Innovation Section -->
     <section id="innovation" class="innovation-section">
         <div class="container">
-            <h2 class="section-title">
-                <span class="title-line"></span>
-                <span class="glitch-title" data-text="INNOVATION">INNOVATION</span>
-                <span class="title-line"></span>
-            </h2>
-            
+            <div class="section-header">
+                <h2 class="section-title">Innovation</h2>
+                <p class="section-subtitle">Pioneering the future of mobility</p>
+            </div>
+
             <div class="innovation-grid">
-                <div class="innovation-card card-3d reveal-bottom">
+                <div class="innovation-card">
                     <div class="innovation-icon">⚡</div>
-                    <h3>Electric Future</h3>
-                    <p>Leading the transition to sustainable mobility with advanced battery electric and hydrogen fuel cell technology.</p>
+                    <h3>Electrification</h3>
+                    <p>Leading the charge with advanced battery electric vehicles and hydrogen fuel cell technology for a sustainable future.</p>
                 </div>
-                
-                <div class="innovation-card card-3d reveal-bottom delay-1">
+
+                <div class="innovation-card">
                     <div class="innovation-icon">🤖</div>
                     <h3>Autonomous Driving</h3>
-                    <p>Pioneering Toyota Safety Sense and advanced driver assistance systems for safer roads.</p>
+                    <p>Pioneering Toyota Safety Sense and Guardian systems to create safer roads for everyone.</p>
                 </div>
-                
-                <div class="innovation-card card-3d reveal-bottom delay-2">
+
+                <div class="innovation-card">
                     <div class="innovation-icon">🌱</div>
                     <h3>Sustainability</h3>
-                    <p>Committed to carbon neutrality through eco-friendly manufacturing and renewable energy initiatives.</p>
+                    <p>Committed to achieving carbon neutrality through eco-friendly manufacturing and renewable energy.</p>
                 </div>
-                
-                <div class="innovation-card card-3d reveal-bottom delay-3">
-                    <div class="innovation-icon">🔧</div>
-                    <h3>Quality Engineering</h3>
-                    <p>The Toyota Production System ensures unmatched reliability and manufacturing excellence.</p>
+
+                <div class="innovation-card">
+                    <div class="innovation-icon">🏭</div>
+                    <h3>Toyota Production System</h3>
+                    <p>Revolutionary manufacturing excellence ensuring legendary reliability and quality in every vehicle.</p>
                 </div>
             </div>
         </div>
@@ -232,51 +309,57 @@
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <h2 class="section-title">
-                <span class="title-line"></span>
-                <span class="glitch-title" data-text="CONTACT US">CONTACT US</span>
-                <span class="title-line"></span>
-            </h2>
-            
-            <div class="contact-content">
-                <form class="contact-form card-3d">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
+            <div class="section-header">
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="section-subtitle">We'd love to hear from you</p>
+            </div>
+
+            <div class="contact-wrapper">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="Phone">
+                        </div>
+                        <div class="form-group">
+                            <select id="interest">
+                                <option value="">Select Model of Interest</option>
+                                <option value="camry">Camry</option>
+                                <option value="rav4">RAV4</option>
+                                <option value="supra">GR Supra</option>
+                                <option value="prius">Prius</option>
+                                <option value="tundra">Tundra</option>
+                                <option value="gr86">GR86</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
+                        <textarea id="message" placeholder="Message" rows="5" required></textarea>
                     </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="Phone Number">
-                    </div>
-                    <div class="form-group">
-                        <select>
-                            <option>Select Vehicle of Interest</option>
-                            <option>Camry</option>
-                            <option>RAV4</option>
-                            <option>Supra</option>
-                            <option>Prius</option>
-                            <option>Tundra</option>
-                            <option>GR86</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Your Message" rows="5"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                    <button type="submit" class="btn btn-primary btn-full">Send Message</button>
                 </form>
-                
+
                 <div class="contact-info">
-                    <div class="info-card card-3d">
-                        <h3>📍 Visit Us</h3>
+                    <div class="info-card">
+                        <div class="info-icon">📍</div>
+                        <h4>Visit Us</h4>
                         <p>Toyota Motor Corporation<br>1 Toyota-Cho, Toyota City<br>Aichi Prefecture 471-8571, Japan</p>
                     </div>
-                    <div class="info-card card-3d">
-                        <h3>📞 Call Us</h3>
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <h4>Call Us</h4>
                         <p>Customer Service: 1-800-GO-TOYOTA<br>Sales: 1-800-331-4331</p>
                     </div>
-                    <div class="info-card card-3d">
-                        <h3>✉️ Email Us</h3>
+                    <div class="info-card">
+                        <div class="info-icon">✉️</div>
+                        <h4>Email Us</h4>
                         <p>info@toyota.com<br>sales@toyota.com</p>
                     </div>
                 </div>
@@ -284,35 +367,45 @@
         </div>
     </section>
 
+    <!-- History Modal -->
+    <div id="historyModal" class="history-modal">
+        <div class="history-modal-content">
+            <button class="close-modal" onclick="closeHistory()">&times;</button>
+            <div id="history-3d-container"></div>
+            <div id="historyContent"></div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-col">
-                    <h4>About Toyota</h4>
-                    <p>Moving forward with innovation, quality, and sustainability since 1937.</p>
+                <div class="footer-section">
+                    <img src="https://www.toyota.com/imgix/responsive/images/mlp/common/toyota-logo.svg" alt="Toyota Logo" class="footer-logo">
+                    <p class="footer-tagline">Let's Go Places</p>
+                    <p class="footer-text">Moving forward with innovation, quality, and sustainability since 1937.</p>
                 </div>
-                <div class="footer-col">
+                <div class="footer-section">
                     <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#vehicles">Vehicles</a></li>
+                    <ul class="footer-links">
+                        <li><a href="#models">Models</a></li>
                         <li><a href="#legacy">Our Story</a></li>
                         <li><a href="#innovation">Innovation</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
+                <div class="footer-section">
                     <h4>Follow Us</h4>
                     <div class="social-links">
-                        <a href="#" class="social-icon">FB</a>
-                        <a href="#" class="social-icon">TW</a>
-                        <a href="#" class="social-icon">IG</a>
-                        <a href="#" class="social-icon">YT</a>
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">YouTube</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Toyota Motor Corporation. All rights reserved. | <span class="neon-text-sm">Let's Go Places</span></p>
+                <p>&copy; 2025 Toyota Motor Corporation. All rights reserved.</p>
             </div>
         </div>
     </footer>
